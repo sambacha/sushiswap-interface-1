@@ -26,6 +26,7 @@ import React, { Fragment, useEffect } from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Web3ReactProvider } from 'web3-react-core'
+import { withErrorHoC } from './errorHandler';
 
 import SEO from '../config/seo'
 
@@ -127,6 +128,7 @@ function MyApp({ Component, pageProps, fallback, err }) {
           `,
         }}
       />
+      <withErrorHoC>
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
         <Web3ReactProvider getLibrary={getLibrary}>
           {/*@ts-ignore TYPE NEEDS FIXING*/}
@@ -160,6 +162,7 @@ function MyApp({ Component, pageProps, fallback, err }) {
           </Web3ProviderNetwork>
         </Web3ReactProvider>
       </I18nProvider>
+      </withErrorHoC>
     </>
   )
 }
