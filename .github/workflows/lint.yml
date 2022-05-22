@@ -39,7 +39,7 @@ jobs:
 
       - name: Run linters w/ autofix
         if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.owner.login == github.repository_owner }}
-        uses: wearerequired/lint-action@36c7e6689e80d785d27a22f71d970f3a3b4fcb70
+        uses: wearerequired/lint-action@2.0.0
         id: lint
         with:
           auto_fix: true
